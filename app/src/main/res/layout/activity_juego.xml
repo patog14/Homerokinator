@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grisGeneral"
+    android:id="@+id/mainGameLayout"
+    tools:context="com.lavacoders.pato.homerokinator.ActivityJuego">
+
+
+    <RelativeLayout
+        android:id="@+id/logoLay"
+        android:layout_width="200dp"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="45dp"
+            android:src="@drawable/homerokinator_oscuro"
+            tools:ignore="ContentDescription" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/inGame"
+        android:background="@color/grisGeneral"
+        android:layout_below="@+id/logoLay">
+
+
+        <EditText
+            android:id="@+id/ingresoUsuario2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="67dp"
+            android:ems="2"
+            android:hint="Nº"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/grisBotones"
+            android:shadowColor="@color/grisBotones"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="2"/>
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ingresoUsuario2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:background="@color/grisBotones"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="Ok" />
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageVidas"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginStart="5dp"-->
+            <!--app:srcCompat="@drawable/vidas"-->
+            <!--android:visibility="visible"-->
+            <!--/>-->
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/vidaRoja4"
+            android:src="@drawable/vida_roja"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/vidaRoja4"
+            android:layout_alignStart="@+id/vidaRoja4"
+            android:layout_marginStart="5dp"
+            android:text="VIDAS"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <ImageView
+        android:id="@+id/vidaRoja3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/vidaRoja4"
+        app:srcCompat="@drawable/vida_roja"
+        android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/vidaRoja2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/vidaRoja3"
+            app:srcCompat="@drawable/vida_roja"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/vidaRoja1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/vidaRoja2"
+            app:srcCompat="@drawable/vida_roja"
+            android:visibility="visible"/>
+
+        <!--<ImageView-->
+        <!--android:id="@+id/imageVidasTres"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:layout_marginStart="5dp"-->
+        <!--app:srcCompat="@drawable/vidas_tres"-->
+        <!--android:visibility="invisible"/>-->
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageVidasDos"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginStart="5dp"-->
+            <!--app:srcCompat="@drawable/vidas_dos"-->
+            <!--android:visibility="invisible"/>-->
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageVidasUno"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginStart="5dp"-->
+            <!--app:srcCompat="@drawable/vidas_uno"-->
+            <!--android:visibility="invisible"/>-->
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageVidasCero"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginStart="5dp"-->
+            <!--app:srcCompat="@drawable/vidas_cero"-->
+            <!--android:visibility="invisible"/>-->
+
+        <Button
+            android:id="@+id/btnReglas2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/grisBotones"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="Reglas" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gameLose"
+        android:layout_below="@+id/logoLay"
+        android:background="@color/grisGeneral"
+        android:visibility="invisible">
+
+
+        <Button
+            android:id="@+id/btnAgain"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="52dp"
+            android:text="Volver a Jugar"
+            android:background="@color/grisBotones"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnBackMenu"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@color/grisBotones"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_alignEnd="@+id/btnAgain"
+            android:layout_below="@+id/btnAgain"
+            android:layout_marginTop="16dp"
+            android:text="Volver al menu" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
