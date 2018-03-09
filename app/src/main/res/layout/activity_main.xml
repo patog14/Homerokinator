@@ -21,29 +21,29 @@
         android:textSize="43sp"
         android:textStyle="bold|italic" />
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnPlay"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="205dp"
+        android:layout_height="70dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="JUGAR"
-        android:background="@color/grisBotones"
+        android:backgroundTint="@color/grisBotones"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textAlignment="center" />
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnReglas"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="205dp"
+        android:layout_height="70dp"
         android:layout_alignStart="@+id/btnPlay"
         android:layout_below="@+id/btnPlay"
         android:layout_marginTop="30dp"
-        android:background="@color/grisBotones"
+        android:backgroundTint="@color/grisBotones"
+        android:text="REGLAS"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:text="REGLAS" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,5 +53,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="3sp"
         android:layout_marginRight="5sp"
+        android:textColor="#FFFFFF"
         android:text="LAVA Coders ®" />
 </RelativeLayout>

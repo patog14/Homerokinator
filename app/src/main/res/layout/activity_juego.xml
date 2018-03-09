@@ -26,6 +26,30 @@
             android:src="@drawable/homerokinator_oscuro"
             tools:ignore="ContentDescription" />
 
+        <!--<TextView-->
+            <!--android:id="@+id/textoPerdiste"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="95dp"-->
+            <!--android:text="Perdiste"-->
+            <!--android:textColor="#FFF"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="50sp"-->
+            <!--android:visibility="invisible"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/numeroGanador"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@id/textoPerdiste"-->
+            <!--android:layout_marginTop="40sp"-->
+            <!--android:textColor="#FFF"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="50sp"-->
+            <!--android:visibility="invisible"/>-->
+
 
     </RelativeLayout>
 

@@ -24,11 +24,14 @@ import android.widget.ViewAnimator;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.github.tbouron.shakedetector.library.ShakeDetector;
 
 import org.apache.commons.lang3.StringUtils;
 
-import libs.mjn.prettydialog.PrettyDialog;
-import libs.mjn.prettydialog.PrettyDialogCallback;
+import cn.refactor.lib.colordialog.PromptDialog;
+
+//import libs.mjn.prettydialog.PrettyDialog;
+//import libs.mjn.prettydialog.PrettyDialogCallback;
 
 
 public class ActivityJuego extends AppCompatActivity {
@@ -96,6 +99,16 @@ public class ActivityJuego extends AppCompatActivity {
             }
         });
 
+        //Shake Animation (Se puede mejorar)
+        ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
+            @Override
+            public void OnShake() {
+                tadaSound.start();
+                ShakeDetector.updateConfiguration(0.50f,2);
+                Toast.makeText(getApplicationContext(), "Ta-da!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         // Funciónes que hacen que el teclado se cierre al tocar afuera del EditText (2 veces por haber 2 layouts en la misma activity)
         findViewById(R.id.inGame).setOnClickListener(new View.OnClickListener() {
@@ -115,9 +128,6 @@ public class ActivityJuego extends AppCompatActivity {
             }
 
         });
-
-
-
 
 
         // Vibración al tocar la foto de Homero
@@ -156,7 +166,7 @@ public class ActivityJuego extends AppCompatActivity {
         btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityJuego.super.finish();
+                finish();
                 startActivity(new Intent(ActivityJuego.this, ActivityJuego.class));
             }
         });
@@ -166,123 +176,79 @@ public class ActivityJuego extends AppCompatActivity {
         btnBackMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 startActivity(new Intent(ActivityJuego.this, MainActivity.class));
             }
         });
 
     }
 
-
     // 4 diálogos de error, cada uno correspondiente al numero de error (del 4 al 1)
     private void dialogError4() {
-        new PrettyDialog(this)
-                .setTitle("No has acertado")
-                .setMessage("4 intentos restantes")
-                .setIcon(R.drawable.error)
-                .setIconTint(R.color.pdlg_color_red)
-                .addButton(
-                        "OK",     // button text
-                        R.color.pdlg_color_white,  // button text color
-                        R.color.pdlg_color_red,  // button background color
-                        new PrettyDialogCallback() {  // button OnClick listener
-                            @Override
-                            public void onClick() {
-
-                            }
-                        }
-                )
-                .setAnimationEnabled(true)
-                .show();
-
+        new PromptDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_WRONG)
+                .setAnimationEnable(true)
+                .setTitleText("No acertaste")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     private void dialogError3() {
-        new PrettyDialog(this)
-                .setTitle("No has acertado")
-                .setMessage("3 intentos restantes")
-                .setIcon(R.drawable.error)
-                .setIconTint(R.color.pdlg_color_red)
-                .addButton(
-                        "OK",     // button text
-                        R.color.pdlg_color_white,  // button text color
-                        R.color.pdlg_color_red,  // button background color
-                        new PrettyDialogCallback() {  // button OnClick listener
-                            @Override
-                            public void onClick() {
-
-                            }
-                        }
-                )
-                .setAnimationEnabled(true)
-                .show();
-
+        new PromptDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_WRONG)
+                .setAnimationEnable(true)
+                .setTitleText("No acertaste")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     private void dialogError2() {
-        new PrettyDialog(this)
-                .setTitle("No has acertado")
-                .setMessage("2 intentos restantes")
-                .setIcon(R.drawable.error)
-                .setIconTint(R.color.pdlg_color_red)
-                .addButton(
-                        "OK",     // button text
-                        R.color.pdlg_color_white,  // button text color
-                        R.color.pdlg_color_red,  // button background color
-                        new PrettyDialogCallback() {  // button OnClick listener
-                            @Override
-                            public void onClick() {
-
-                            }
-                        }
-                )
-                .setAnimationEnabled(true)
-                .show();
-
+        new PromptDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_WRONG)
+                .setAnimationEnable(true)
+                .setTitleText("No acertaste")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     private void dialogError1() {
-        new PrettyDialog(this)
-                .setTitle("No has acertado")
-                .setMessage("Último intento")
-                .setIcon(R.drawable.error)
-                .setIconTint(R.color.pdlg_color_red)
-                .addButton(
-                        "OK",     // button text
-                        R.color.pdlg_color_white,  // button text color
-                        R.color.pdlg_color_red,  // button background color
-                        new PrettyDialogCallback() {  // button OnClick listener
-                            @Override
-                            public void onClick() {
-
-                            }
-                        }
-                )
-                .setAnimationEnabled(true)
-                .show();
-
+        new PromptDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_WRONG)
+                .setAnimationEnable(true)
+                .setTitleText("No acertaste")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
-
-    // Diálogo al ganar
     private void dialogSuccess() {
-        new PrettyDialog(this)
-                .setTitle("¡Has acertado!")
-                .setMessage("¡Felicitaciones!")
-                .setIcon(R.drawable.success)
-                .setIconTint(R.color.pdlg_color_green)
-                .addButton(
-                        "OK",     // button text
-                        R.color.pdlg_color_white,  // button text color
-                        R.color.pdlg_color_green,  // button background color
-                        new PrettyDialogCallback() {  // button OnClick listener
-                            @Override
-                            public void onClick() {
-                                startActivity(new Intent(ActivityJuego.this, GameWinPopup.class));
-                            }
-                        }
-                )
-                .setAnimationEnabled(true)
-                .show();
+        new PromptDialog(this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_SUCCESS)
+                .setAnimationEnable(true)
+                .setTitleText("¡Ganaste!")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                        finish();
+                        startActivity(new Intent(ActivityJuego.this, GameWinPopup.class));
+                    }
+                }).show();
     }
 
 
@@ -415,17 +381,17 @@ public class ActivityJuego extends AppCompatActivity {
         int numeros[] = new int[10];
 
         numeros[0] = 2;
-        numeros[1] = 4;
-        numeros[2] = 6;
-        numeros[3] = 8;
-        numeros[4] = 10;
-        numeros[5] = 12;
-        numeros[6] = 14;
-        numeros[7] = 16;
-        numeros[8] = 18;
-        numeros[9] = 20;
+//        numeros[1] = 4;
+//        numeros[2] = 6;
+//        numeros[3] = 8;
+//        numeros[4] = 10;
+//        numeros[5] = 12;
+//        numeros[6] = 14;
+//        numeros[7] = 16;
+//        numeros[8] = 18;
+//        numeros[9] = 20;
 
-        int random = (int) (Math.random() * 10);
+        int random = (int) (Math.random() * 1);
 
 
         return numeros[random];
