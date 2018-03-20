@@ -23,7 +23,7 @@ public class ReglasPopup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int )(width*.8),(int) (height*.48));
+        getWindow().setLayout((int )(width*.8),(int) (height*.54));
 
     }
 }

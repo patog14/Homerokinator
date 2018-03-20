@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lavacoders.pato.homerokinator.ActivityDificultades"
+    android:background="@color/grisGeneral">
+
+
+    <TextView
+        android:id="@+id/textDiffs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:text="Dificultad"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/diffFacil"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/diffNormal"
+        android:layout_below="@+id/textDiffs"
+        android:layout_marginTop="70dp"
+        android:background="@color/grisBotones"
+        android:text="Facil"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/diffNormal"
+        android:background="@color/grisBotones"
+        android:textColor="@color/white"
+        android:layout_below="@id/diffFacil"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Normal" />
+
+
+    <Button
+        android:id="@+id/diffDificil"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/diffNormal"
+        android:layout_below="@+id/diffNormal"
+        android:layout_marginTop="38dp"
+        android:background="@color/grisBotones"
+        android:text="Dificil"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>

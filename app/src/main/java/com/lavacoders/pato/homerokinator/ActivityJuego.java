@@ -52,9 +52,13 @@ public class ActivityJuego extends AppCompatActivity {
     private Button btnBackMenu;
     private ImageView logoHomero;
     private int maquinaRandom;
+    private int maquinaRandomFacil;
+    private int maquinaRandomDificil;
     private MediaPlayer wrongSound;
     private MediaPlayer rightSound;
     private MediaPlayer tadaSound;
+    private Button btnFacil;
+    private Button btnDificil;
 
 
     @Override
@@ -81,6 +85,11 @@ public class ActivityJuego extends AppCompatActivity {
         wrongSound = MediaPlayer.create(this, R.raw.wrong_sound);
         rightSound = MediaPlayer.create(this, R.raw.right_sound);
         tadaSound = MediaPlayer.create(this, R.raw.tada);
+
+        btnFacil = findViewById(R.id.diffFacil);
+        btnDificil = findViewById(R.id.diffDificil);
+        maquinaRandomFacil = selectorNumeroMaquinaFacil();
+        maquinaRandomDificil = selectorNumeroMaquinaDificil();
 
 
         // Animación al tocar la foto de Homero
@@ -257,6 +266,7 @@ public class ActivityJuego extends AppCompatActivity {
         String ingreso2 = ingresoOk.getText().toString();
         int ingreso2final = 0;
 
+        //Lógica para la dificultad Normal
         if (buttonOk.isClickable()) {
 
 
@@ -294,6 +304,66 @@ public class ActivityJuego extends AppCompatActivity {
             //TODO: 2 caminos: El primero es el que quiero intentar el cual consiste en que las vidas bajen pero que tambien mediante un toast se muestre los intentos restantes. El segundo camino puede ser que el toast se repita en loop siempre diciendo que no fue correcto y que las vidas bajen.
 
 
+        } else if (btnFacil.isClickable()) {
+            //Lógica para la dificultad Facil
+
+            // (Primer If) Validacion sobre si se ingreso un numero o una letra
+            if (StringUtils.isNumeric(ingreso2)) {
+                ingreso2final = Integer.parseInt(ingreso2);
+                if (ingreso2final != maquinaRandomFacil) {
+                    // Inicialización del sonido de error
+                    wrongSound.start();
+                    // Mensaje en pantalla
+                    Toast.makeText(ActivityJuego.this, "No has acertado", Toast.LENGTH_SHORT).show();
+                    // Llamado a la función encargada de manejar las vidas, la cual termina mostrando la actividad correspondiente a haber perdido
+                    checkLifes(vidaRoja4, vidaRoja3, vidaRoja2, vidaRoja1, vidaRoja4, ingresoUsuario2);
+                    if (lives == 0) {
+                        gameOverLose(gameLose, inGame, lives);
+                    }
+
+
+                } else {
+                    // Inicialización del sonido al ganar
+                    rightSound.start();
+                    Toast.makeText(ActivityJuego.this, "Felicitaciones! Has ganado.", Toast.LENGTH_SHORT).show();
+                    // Cambio a la actividad por haber ganado
+                    gameOverWin(ingresoUsuario2, buttonOk, lives, reglas2);
+
+                }
+            } else {
+                //Mensaje en pantalla cuando se quiere introductir un espacio en blanco.
+                Toast.makeText(ActivityJuego.this, "El dato que introduciste no es valido", Toast.LENGTH_SHORT).show();
+            }
+        }else if (btnDificil.isClickable()) {
+            //Lógica para la dificultad Dificil
+
+            // (Primer If) Validacion sobre si se ingreso un numero o una letra
+            if (StringUtils.isNumeric(ingreso2)) {
+                ingreso2final = Integer.parseInt(ingreso2);
+                if (ingreso2final != maquinaRandomDificil) {
+                    // Inicialización del sonido de error
+                    wrongSound.start();
+                    // Mensaje en pantalla
+                    Toast.makeText(ActivityJuego.this, "No has acertado", Toast.LENGTH_SHORT).show();
+                    // Llamado a la función encargada de manejar las vidas, la cual termina mostrando la actividad correspondiente a haber perdido
+                    checkLifes(vidaRoja4, vidaRoja3, vidaRoja2, vidaRoja1, vidaRoja4, ingresoUsuario2);
+                    if (lives == 0) {
+                        gameOverLose(gameLose, inGame, lives);
+                    }
+
+
+                } else {
+                    // Inicialización del sonido al ganar
+                    rightSound.start();
+                    Toast.makeText(ActivityJuego.this, "Felicitaciones! Has ganado.", Toast.LENGTH_SHORT).show();
+                    // Cambio a la actividad por haber ganado
+                    gameOverWin(ingresoUsuario2, buttonOk, lives, reglas2);
+
+                }
+            } else {
+                //Mensaje en pantalla cuando se quiere introductir un espacio en blanco.
+                Toast.makeText(ActivityJuego.this, "El dato que introduciste no es valido", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
@@ -375,23 +445,68 @@ public class ActivityJuego extends AppCompatActivity {
     }
 
 
-    // Numero aleatorio elegido por la maquina
+    // Numero aleatorio elegido por la maquina (normal)
     private static int selectorNumeroMaquina() {
 
         int numeros[] = new int[10];
 
         numeros[0] = 2;
-//        numeros[1] = 4;
-//        numeros[2] = 6;
-//        numeros[3] = 8;
-//        numeros[4] = 10;
-//        numeros[5] = 12;
-//        numeros[6] = 14;
-//        numeros[7] = 16;
-//        numeros[8] = 18;
-//        numeros[9] = 20;
+        numeros[1] = 4;
+        numeros[2] = 6;
+        numeros[3] = 8;
+        numeros[4] = 10;
+        numeros[5] = 12;
+        numeros[6] = 14;
+        numeros[7] = 16;
+        numeros[8] = 18;
+        numeros[9] = 20;
 
-        int random = (int) (Math.random() * 1);
+        int random = (int) (Math.random() * 10);
+
+
+        return numeros[random];
+    }
+
+    // Numero aleatorio elegido por la maquina (facil)
+    private static int selectorNumeroMaquinaFacil() {
+
+        int numeros[] = new int[5];
+
+        numeros[0] = 2;
+        numeros[1] = 4;
+        numeros[2] = 6;
+        numeros[3] = 8;
+        numeros[4] = 10;
+
+        int random = (int) (Math.random() * 5);
+
+
+        return numeros[random];
+    }
+
+    // Numero aleatorio elegido por la maquina (dificil)
+    private static int selectorNumeroMaquinaDificil() {
+
+        int numeros[] = new int[15];
+
+        numeros[0] = 2;
+        numeros[1] = 4;
+        numeros[2] = 6;
+        numeros[3] = 8;
+        numeros[4] = 10;
+        numeros[5] = 12;
+        numeros[6] = 14;
+        numeros[7] = 16;
+        numeros[8] = 18;
+        numeros[9] = 20;
+        numeros[10] = 22;
+        numeros[11] = 24;
+        numeros[12] = 26;
+        numeros[13] = 28;
+        numeros[14] = 30;
+
+
+        int random = (int) (Math.random() * 15);
 
 
         return numeros[random];

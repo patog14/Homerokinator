@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         buttonJuego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ActivityJuego.class));
+                startActivity(new Intent(MainActivity.this, ActivityDificultades.class));
                 overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
             }
         });
